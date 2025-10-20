@@ -58,13 +58,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                          </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <button
-                                onClick={() => onNavigate({ view: 'booking' })}
-                                className="btn-primary w-full sm:w-auto"
-                            >
-                                <span className="text-base">{t('heroButton')}</span>
-                            </button>
-                            <button
-                                onClick={() => onNavigate({ view: 'shop' })}
+                                onClick={() => window.open('http://www.goldhaircare.sk/affiliate/2208', '_blank', 'noopener,noreferrer')}
                                 className="btn-secondary w-full sm:w-auto"
                             >
                                 <span className="text-base">{t('heroButtonSecondary')}</span>

@@ -363,9 +363,7 @@ export const whatWeDoCards = [
     { id: 'styling', iconId: 'scissors' as const, titleId: 'card_styling_title', subtitleId: 'card_styling_subtitle' },
     { id: 'coloring', iconId: 'palette' as const, titleId: 'card_coloring_title', subtitleId: 'card_coloring_subtitle' },
     { id: 'updos', iconId: 'swirl' as const, titleId: 'card_updos_title', subtitleId: 'card_updos_subtitle' },
-    { id: 'promo_2plus2', iconId: 'gift' as const, titleId: 'card_promo_2plus2_title', subtitleId: 'card_promo_2plus2_subtitle' },
-    { id: 'booking', iconId: 'calendar' as const, titleId: 'card_booking_title', subtitleId: 'card_booking_subtitle' },
-    { id: 'vto', iconId: 'wand' as const, titleId: 'card_virtual_try_on_title', subtitleId: 'card_virtual_try_on_subtitle' }
+    { id: 'booking', iconId: 'calendar' as const, titleId: 'card_booking_title', subtitleId: 'card_booking_subtitle' }
 ];
 
 export const arHairColors = [

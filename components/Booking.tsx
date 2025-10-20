@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { NavigationIntent } from '../App';
 import { teamMembers, womensServices, mensServices } from '../constants';
-import { siteConfig } from '../config/siteConfig';
 import SectionHeader from './SectionHeader';
 
 interface BookingProps {
@@ -29,22 +28,7 @@ const Booking: React.FC<BookingProps> = ({ onNavigate }) => {
     }, []);
 
     const handleProceed = () => {
-        const bookingUrl = new URL(siteConfig.links.booking);
-
-        if (stylist !== 'any') {
-            // Assuming bookio accepts a 'staff_id' parameter.
-            bookingUrl.searchParams.append('staff_id', stylist);
-        }
-        if (selectedServices.length > 0) {
-            // Assuming bookio accepts 'service_ids' as a comma-separated list.
-            bookingUrl.searchParams.append('service_ids', selectedServices.join(','));
-        }
-        if (dateTime) {
-            // Assuming bookio accepts a 'datetime' parameter.
-            bookingUrl.searchParams.append('datetime', dateTime);
-        }
-
-        window.open(bookingUrl.toString(), '_blank', 'noopener,noreferrer');
+        window.open('https://services.bookio.com/papi-hair-design/widget/pricing', '_blank', 'noopener,noreferrer');
     };
     
     const handleServiceToggle = (serviceId: string) => {

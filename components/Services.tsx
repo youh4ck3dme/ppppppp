@@ -75,7 +75,7 @@ const Services: React.FC = () => {
                         <TabButton tabName="mens" label={t('services_mens_tab')} />
                     </div>
 
-                    <div className={`max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 stagger-children ${isVisible ? 'is-visible' : ''}`}>
+                    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
                         {servicesToDisplay.map((category) => (
                             <div key={category.categoryId}>
                                 <h3 className="category-title">
