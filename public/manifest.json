@@ -1,0 +1,21 @@
+{
+  "short_name": "Papi Hair",
+  "name": "Papi Hair Design",
+  "icons": [
+    {
+      "src": "/assets/logo.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/logo.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "description": "Prémiové kaderníctvo v Košiciach s AI asistentkou, virtuálnym vyskúšaním a e-shopom."
+}

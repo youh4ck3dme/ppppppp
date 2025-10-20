@@ -1,0 +1,7 @@
+{
+  "name": "PAPI HAIR DESIGN",
+  "description": "A high-end, innovative web & mobile platform for the Papi Hair Design salon in Košice, featuring an AI assistant, virtual try-on, an e-shop, and a VIP loyalty club.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
