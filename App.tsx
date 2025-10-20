@@ -8,7 +8,6 @@ import Hero from './components/Hero';
 import WhatWeDo from './components/WhatWeDo';
 import AboutPapiGold from './components/AboutPapiGold';
 import Services from './components/Services';
-import VirtualTryOn from './components/VirtualTryOn';
 import Blog from './components/Blog';
 import VipClub from './components/VipClub';
 import InstagramFeed from './components/InstagramFeed';
@@ -98,7 +97,7 @@ const getPageMetadata = (intent: NavigationIntent, t: (key: string) => string) =
         default:
             if (intent.sectionId) {
                 const sectionTitleMap: { [key: string]: string } = {
-                    'services': t('navServices'), 'virtual-try-on': t('vto_title'),
+                    'services': t('navServices'),
                     'blog': t('gallery_title'), 'vip-club': t('vip_title'),
                     'featured-products': t('featuredProducts_title'), 'instagram-feed': t('instagram_title'),
                     'what-we-do': t('whatWeDoTitle'), 'about-papi-gold': t('papiGoldTitle'),
@@ -211,7 +210,7 @@ const AppContent: React.FC = () => {
     };
 
     const renderMainApp = () => (
-        <div className={`min-h-screen ${isMenuOpen ? 'menu-open' : ''}`} id="page-content">
+        <div className={`min-h-screen ${isMenuOpen ? 'menu-open' : ''}`} id="page-content" style={{ backgroundColor: '#000000' }}>
             <ProgressBar isLoading={isLoading} />
             <Header onNavigate={handleNavigate} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             <main>
@@ -243,7 +242,6 @@ const AppContent: React.FC = () => {
                         <WhatWeDo />
                         <AboutPapiGold />
                         <Services />
-                        <VirtualTryOn onNavigate={handleNavigate} />
                         <Blog />
                         <VipClub />
                         <FeaturedProducts onNavigate={handleNavigate} />
@@ -260,7 +258,7 @@ const AppContent: React.FC = () => {
     return (
         <>
             <MetaUpdater title={metadata.title} description={metadata.description} keywords={metadata.keywords} />
-            <FlowingParticlesBackground />
+            {/* <FlowingParticlesBackground /> */}
             <NotificationTrigger />
             {renderMainApp()}
         </>
