@@ -132,20 +132,15 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isMenuOpen, setIsMenuOpen }
                             <div className="lang-switcher">
                                 <button 
                                     onClick={() => setLanguage('sk')}
-                                    className={`lang-switcher-btn ${language === 'sk' ? 'active' : ''}`}
-                                >
+                                    className={`lang-switcher-btn ${language === 'sk' ? 'active' : ''}`}>
                                     SK
                                 </button>
                                 <button 
                                     onClick={() => setLanguage('en')}
-                                    className={`lang-switcher-btn ${language === 'en' ? 'active' : ''}`}
-                                >
+                                    className={`lang-switcher-btn ${language === 'en' ? 'active' : ''}`}>
                                     EN
                                 </button>
                             </div>
-                            <button onClick={() => onNavigate({ view: isAuthenticated ? 'profile' : 'admin' })} className="icon-btn" aria-label={isAuthenticated ? t('profile_button_aria_view') : t('profile_button_aria_login')}>
-                                <Icon id="user" className="w-6 h-6" />
-                            </button>
                             
                             {/* Mobile menu button */}
                             <button onClick={() => setIsMenuOpen(true)} className="lg:hidden icon-btn" aria-label="Open menu">

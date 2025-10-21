@@ -19,7 +19,7 @@ const Services: React.FC = () => {
     const handleTabChange = (tabName: 'womens' | 'mens') => {
         setActiveTab(tabName);
         if (sectionRef.current) {
-             const headerOffset = 80;
+             const headerOffset = 80; // Výška hlavičky
              const elementPosition = sectionRef.current.getBoundingClientRect().top;
              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -38,7 +38,7 @@ const Services: React.FC = () => {
         <button
             onClick={() => handleTabChange(tabName)}
             className={`
-                relative px-4 py-2 text-xl font-serif font-bold transition-colors duration-300
+                relative px-4 py-2 text-lg sm:text-xl font-serif font-bold transition-colors duration-300
                 ${activeTab === tabName 
                     ? 'text-white' 
                     : 'text-gray-500 hover:text-white'
@@ -47,10 +47,8 @@ const Services: React.FC = () => {
         >
             {label}
             <span
-              className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[var(--color-accent)] transform transition-transform duration-300 ${
-                activeTab === tabName ? 'scale-x-100' : 'scale-x-0'
-              }`}
-            />
+              className={`absolute bottom-0 left-0 right-0 mx-auto h-0.5 bg-[var(--color-accent)] transform transition-transform duration-300 ${activeTab === tabName ? 'scale-x-100' : 'scale-x-0'}`}>
+            </span>
         </button>
     );
 
@@ -69,12 +67,12 @@ const Services: React.FC = () => {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <SectionHeader title={t('servicesTitle')} subtitle={t('servicesSubtitle')} />
 
-                    <div className="flex justify-center items-center gap-8 mb-16">
+                    <div className="flex justify-center items-center gap-4 sm:gap-8 mb-12 md:mb-16">
                         <TabButton tabName="womens" label={t('services_womens_tab')} />
                         <TabButton tabName="mens" label={t('services_mens_tab')} />
                     </div>
 
-                    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-8 lg:gap-x-16">
                         {servicesToDisplay.map((category) => (
                             <div key={category.categoryId}>
                                 <h3 className="category-title">
@@ -84,19 +82,21 @@ const Services: React.FC = () => {
                                     {category.services.map((service) => {
                                         const hasDetails = serviceDetails.some(d => d.id === service.id);
                                         return (
-                                            <li key={service.id} className="flex justify-between items-baseline text-gray-300">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-base font-medium">{t(`service_${service.id}_name`)}</span>
-                                                    <button 
-                                                        onClick={() => handleShowDetails(service.id)} 
-                                                        className={`${hasDetails ? 'text-gray-500 hover:text-[var(--color-accent)]' : 'text-gray-800 cursor-not-allowed'} transition-colors`}
-                                                        aria-label={`Viac informácií o ${t(`service_${service.id}_name`)}`}
-                                                        disabled={!hasDetails}
-                                                    >
-                                                        <Icon id="info" className="w-4 h-4" />
-                                                    </button>
+                                            <li key={service.id} className="flex justify-between items-start gap-4 text-gray-300">
+                                                <div className="flex-1">
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="text-base font-medium">{t(`service_${service.id}_name`)}</span>
+                                                        <button 
+                                                            onClick={() => handleShowDetails(service.id)} 
+                                                            className={`${hasDetails ? 'text-gray-500 hover:text-[var(--color-accent)]' : 'text-gray-800 cursor-not-allowed'} transition-colors`}
+                                                            aria-label={`Viac informácií o ${t(`service_${service.id}_name`)}`}
+                                                            disabled={!hasDetails}
+                                                        >
+                                                            <Icon id="info" className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <span className="text-lg font-bold text-white">{service.price.toFixed(2)} €</span>
+                                                <span className="flex-shrink-0 text-lg font-bold text-white">{service.price.toFixed(2)} €</span>
                                             </li>
                                         );
                                     })}
@@ -106,7 +106,7 @@ const Services: React.FC = () => {
                     </div>
 
                     {activeTab === 'womens' && (
-                         <div className="text-center mt-20">
+                         <div className="text-center mt-16 md:mt-20">
                             <p className="text-sm text-gray-500 max-w-3xl mx-auto">
                                {t('services_disclaimer')}
                             </p>

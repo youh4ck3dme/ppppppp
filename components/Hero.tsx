@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                     <div className={`text-center stagger-children ${isVisible ? 'is-visible' : ''}`}>
                         
                         <div 
-                            className="mb-8"
+                            className="mb-6 md:mb-8"
                             ref={titleRef}
                             onMouseMove={handleMouseMove}
                         >
@@ -47,13 +47,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                            </h1>
                         </div>
 
-                        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] mb-8">
+                        <h2 className="text-xl md:text-2xl text-[var(--color-accent)] mb-6 md:mb-8">
                             {t('heroSubtitle')}
                         </h2>
-                        <p className="text-base text-gray-300 mb-6 leading-relaxed">
+                        <p className="text-base text-gray-300 mb-4 md:mb-6 leading-relaxed">
                             {t('heroMainText')}
                         </p>
-                         <p className="text-base text-gray-300 mb-10 leading-relaxed">
+                         <p className="text-base text-gray-300 mb-8 md:mb-10 leading-relaxed">
                             {t('heroSecondaryText')}
                          </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

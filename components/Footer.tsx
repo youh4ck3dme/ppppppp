@@ -104,7 +104,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                         </div>
                     </div>
 
-                    <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         <div>
                             <h4 className="text-base font-bold text-white uppercase tracking-wider mb-6">{t('footer_services_title')}</h4>
                             {renderLinks(footerLinks.services)}
