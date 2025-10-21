@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { useAuth } from '../context/AuthContext';
 import { useSavedLooks } from '../context/SavedLooksContext';
-import { userVisitHistory, userPurchaseHistory, userVipStatus, teamMembers, womensServices, mensServices } from '../constants';
 import { useProducts } from '../context/ProductContext';
 import { Icon, IconId } from './Icons';
 import { NavigationIntent } from '../App';
@@ -28,6 +27,11 @@ const TabButton: React.FC<{
 
 const VisitHistory: React.FC = () => {
     const { t } = useTranslation();
+    const userVisitHistory = t('userVisitHistory') || [];
+    const teamMembers = t('team') || [];
+    const womensServices = t('womensServices') || [];
+    const mensServices = t('mensServices') || [];
+
     const allServices = useMemo(() => {
         const servicesMap = new Map<string, string>();
         [...womensServices, ...mensServices].forEach(category => {
@@ -36,7 +40,7 @@ const VisitHistory: React.FC = () => {
             });
         });
         return servicesMap;
-    }, [t]);
+    }, [t, womensServices, mensServices]);
 
     const getStylistName = (id: string) => teamMembers.find(m => m.id === id)?.name || id;
 
@@ -86,6 +90,7 @@ const SavedLooks: React.FC = () => {
 const PurchaseHistory: React.FC = () => {
     const { t } = useTranslation();
     const { products } = useProducts();
+    const userPurchaseHistory = t('userPurchaseHistory') || [];
     const getProductName = (id: string) => t(products.find(p => p.id === id)?.nameId || 'Unknown Product');
 
     return (
@@ -113,6 +118,8 @@ const PurchaseHistory: React.FC = () => {
 
 const VipStatus: React.FC = () => {
     const { t } = useTranslation();
+    const userVipStatus = t('userVipStatus');
+    if (!userVipStatus) return null;
     const { levelId, points, pointsToNextLevel, memberSince } = userVipStatus;
     const progressPercentage = (points / (points + pointsToNextLevel)) * 100;
 

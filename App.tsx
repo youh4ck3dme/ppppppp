@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import WhatWeDo from './components/WhatWeDo';
-import AboutPapiGold from './components/AboutPapiGold';
 import Services from './components/Services';
 import HaircareTips from './components/HaircareTips';
 import InstagramFeed from './components/InstagramFeed';
@@ -53,7 +52,14 @@ const NotificationTrigger: React.FC = () => {
         if (isAuthenticated) {
             const alreadyChecked = sessionStorage.getItem('papi_notif_checked');
             if (!alreadyChecked) {
-                checkAndTriggerNotifications({ addProfileNotification, t });
+                const allTranslations = (t as any).getRawTranslations();
+                checkAndTriggerNotifications({
+                    addProfileNotification,
+                    t,
+                    userVisitHistory: allTranslations.userVisitHistory || [],
+                    userPurchaseHistory: allTranslations.userPurchaseHistory || [],
+                    products: allTranslations.products || [],
+                });
                 sessionStorage.setItem('papi_notif_checked', 'true');
             }
         }
@@ -91,7 +97,6 @@ const getPageMetadata = (intent: NavigationIntent, t: (key: string) => string) =
                     'services': t('navServices'),
                     'instagram-feed': t('instagram_title'),
                     'what-we-do': t('whatWeDoTitle'),
-                    'about-papi-gold': t('papiGoldTitle'),
                 };
                 const sectionTitle = sectionTitleMap[intent.sectionId] || intent.sectionId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                 return { title: `${sectionTitle} | Papi Hair Design`, description: defaultDescription, keywords: `${sectionTitle}, ${defaultKeywords}` };
@@ -221,7 +226,6 @@ const AppContent: React.FC = () => {
                         <Hero onNavigate={handleNavigate} />
                         <WhatWeDo />
                         <HaircareTips /> 
-                        <AboutPapiGold />
                         <Services />
                         {/* <FeaturedProducts onNavigate={handleNavigate} /> */}
                         <InstagramFeed />

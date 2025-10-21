@@ -28,5 +28,11 @@ export const useTranslation = () => {
         return [{ type: 'p', content: key }];
     }, [language]);
 
+    const getRawTranslations = useCallback(() => {
+        return translations[language];
+    }, [language]);
+
+    t.getRawTranslations = getRawTranslations
+
     return { t, language, tStructured };
 };

@@ -1,15 +1,16 @@
-import { userVisitHistory, userPurchaseHistory, products } from '../constants';
-
 interface NotificationTriggerPayload {
     addProfileNotification: (notification: { type: 'haircut_reminder' | 'product_restock'; message: string; relatedId?: string; }) => void;
     t: (key: string) => string;
+    userVisitHistory: any[];
+    userPurchaseHistory: any[];
+    products: any[];
 }
 
 const WEEKS_TO_MILLISECONDS = (weeks: number) => weeks * 7 * 24 * 60 * 60 * 1000;
 const HAIRCUT_REMINDER_WEEKS = 6;
 const PRODUCT_RESTOCK_WEEKS = 8;
 
-export const checkAndTriggerNotifications = ({ addProfileNotification, t }: NotificationTriggerPayload) => {
+export const checkAndTriggerNotifications = ({ addProfileNotification, t, userVisitHistory, userPurchaseHistory, products }: NotificationTriggerPayload) => {
     const now = new Date().getTime();
 
     // Check for haircut reminder

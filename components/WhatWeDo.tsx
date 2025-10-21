@@ -3,15 +3,19 @@
  * Copyright 2025 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { whatWeDoCards } from '../constants';
 import SectionHeader from './SectionHeader';
 import { Icon } from './Icons';
 
 interface CardProps {
-    data: (typeof whatWeDoCards)[number];
+    data: {
+        id: string;
+        iconId: string;
+        titleId: string;
+        subtitleId: string;
+    };
 }
 
 const Card: React.FC<CardProps> = ({ data }) => {
@@ -52,7 +56,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
         >
             <div className="card-content">
                 <div className="card-icon" aria-hidden="true">
-                    <Icon id={data.iconId} />
+                    <Icon id={data.iconId as any} />
                 </div>
                 <div className="card-text-content">
                     <h3 className="card-title">{t(data.titleId)}</h3>
@@ -66,6 +70,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
 const WhatWeDo: React.FC = () => {
     const { t } = useTranslation();
     const { ref, isVisible } = useScrollAnimation<HTMLElement>();
+    const whatWeDoCards = t('whatWeDoCards') || [];
 
     return (
         <section 
@@ -76,7 +81,7 @@ const WhatWeDo: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader title={t('whatWeDoTitle')} subtitle={t('whatWeDoSubtitle')} />
                 <div className={`card-container stagger-children ${isVisible ? 'is-visible' : ''}`}>
-                    {whatWeDoCards.map((card) => (
+                    {whatWeDoCards.map((card: any) => (
                         <Card key={card.id} data={card} />
                     ))}
                 </div>

@@ -18,8 +18,16 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <p className="text-lg md:text-xl text-gray-300 leading-relaxed md:leading-loose mb-12">
                     {t('about_text')}
                 </p>
+                
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
+                    {t('about_founder_subtitle')}
+                </h2>
+                <p className="text-lg md:text-xl text-gray-300 leading-relaxed md:leading-loose mb-12">
+                    {t('about_papi_text')}
+                </p>
+                
                 <button
-                    onClick={() => onNavigate({ view: 'main', sectionId: 'footer'})}
+                    onClick={() => onNavigate({ view: 'main', sectionId: 'footer' })}
                     className="btn-primary"
                 >
                     <span>{t('about_button')}</span>

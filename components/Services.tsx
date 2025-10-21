@@ -1,10 +1,27 @@
 import React, { useState, useRef } from 'react';
-import { womensServices, mensServices, serviceDetails, ServiceDetail } from '../constants';
 import { useTranslation } from '../hooks/useTranslation';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import SectionHeader from './SectionHeader';
 import { Icon } from './Icons';
 import ServiceDetailModal from './ServiceDetailModal';
+
+interface Service {
+    id: string;
+    price: number;
+}
+
+interface ServiceDetail {
+  id: string;
+  images: string[];
+  processDescriptionTextId: string;
+  durationTextId: string;
+  bestForTextId: string;
+}
+
+interface ServiceGroup {
+    categoryId: string;
+    services: Service[];
+}
 
 const Services: React.FC = () => {
     const { t } = useTranslation();
@@ -13,6 +30,10 @@ const Services: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
+
+    const womensServices = t('womensServices') as ServiceGroup[] || [];
+    const mensServices = t('mensServices') as ServiceGroup[] || [];
+    const serviceDetails = t('serviceDetails') as ServiceDetail[] || [];
 
     const servicesToDisplay = activeTab === 'womens' ? womensServices : mensServices;
     
