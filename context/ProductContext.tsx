@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { Product } from '../types';
-import { products as initialProducts } from '../constants';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface ProductContextType {
     products: Product[];
@@ -11,7 +11,7 @@ interface ProductContextType {
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
-const getInitialState = (): Product[] => {
+const getInitialState = (initialProducts: Product[]): Product[] => {
     try {
         const item = window.localStorage.getItem('papi_products');
         if (item) {
@@ -27,7 +27,9 @@ const getInitialState = (): Product[] => {
 };
 
 export const ProductProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [products, setProducts] = useState<Product[]>(getInitialState);
+    const { t } = useTranslation();
+    const initialProducts = t('products') as any[];
+    const [products, setProducts] = useState<Product[]>(() => getInitialState(initialProducts));
 
     useEffect(() => {
         try {

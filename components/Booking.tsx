@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { NavigationIntent } from '../App';
-import { teamMembers, womensServices, mensServices } from '../constants';
 import SectionHeader from './SectionHeader';
 
 interface BookingProps {
@@ -10,6 +9,9 @@ interface BookingProps {
 
 const Booking: React.FC<BookingProps> = ({ onNavigate }) => {
     const { t } = useTranslation();
+    const teamMembers = t('teamMembers') as any[];
+    const womensServices = t('womensServices') as any[];
+    const mensServices = t('mensServices') as any[];
 
     const [serviceType, setServiceType] = useState<'womens' | 'mens' | null>(null);
     const [selectedServices, setSelectedServices] = useState<string[]>([]);
