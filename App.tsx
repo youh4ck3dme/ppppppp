@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import WhatWeDo from './components/WhatWeDo';
 import AboutPapiGold from './components/AboutPapiGold';
 import Services from './components/Services';
+import HaircareTips from './components/HaircareTips';
 import InstagramFeed from './components/InstagramFeed';
 import Footer from './components/Footer';
 import About from './components/About';
@@ -219,6 +220,7 @@ const AppContent: React.FC = () => {
                     <>
                         <Hero onNavigate={handleNavigate} />
                         <WhatWeDo />
+                        <HaircareTips /> 
                         <AboutPapiGold />
                         <Services />
                         {/* <FeaturedProducts onNavigate={handleNavigate} /> */}
@@ -237,7 +239,7 @@ const AppContent: React.FC = () => {
             <MetaUpdater title={metadata.title} description={metadata.description} keywords={metadata.keywords} />
             <NotificationTrigger />
             {renderMainApp()}
-        </> 
+        </>
     );
 };
 
