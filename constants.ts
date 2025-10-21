@@ -79,26 +79,25 @@ export const mensServices = [
         services: [
             { id: "beard_trim", price: 15.00 },
             { id: "hair_beard_combo", price: 32.00 },
-            { id: "mens_special_f", price: 45.00 },
-            { id: "mens_special", price: 55.00 },
+            { id: "mens_special", price: 50.00 },
         ],
     },
     {
         categoryId: "mens_color",
         services: [
-            { id: "perm", price: 50.00 },
-            { id: "hair_lightening", price: 70.00 },
-            { id: "beard_coloring", price: 25.00 },
-            { id: "grey_blending", price: 30.00 },
+            { id: "perm", price: 40.00 },
+            { id: "hair_lightening", price: 40.00 },
+            { id: "beard_coloring", price: 10.00 },
+            { id: "grey_blending", price: 10.00 },
         ],
     },
     {
         categoryId: "mens_addons",
         services: [
-            { id: "nose_waxing", price: 8.00 },
-            { id: "ear_waxing", price: 8.00 },
-            { id: "ear_candles", price: 15.00 },
-            { id: "peel_black_mask", price: 12.00 },
+            { id: "nose_waxing", price: 5.00 },
+            { id: "ear_waxing", price: 5.00 },
+            { id: "ear_candles", price: 10.00 },
+            { id: "peel_black_mask", price: 10.00 },
         ],
     }
 ];
