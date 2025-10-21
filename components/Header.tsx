@@ -65,6 +65,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isMenuOpen, setIsMenuOpen }
     const headerRef = useRef<HTMLElement>(null);
 
     const navLinks: { intent: NavigationIntent; labelKey: string }[] = [
+        { intent: { view: 'main', sectionId: 'hero' }, labelKey: 'nav_home' },
         { intent: { view: 'about' }, labelKey: 'nav_about' },
         { intent: { view: 'main', sectionId: 'services' }, labelKey: 'navServices' },
     ];

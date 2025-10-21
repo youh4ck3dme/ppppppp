@@ -25,6 +25,7 @@ export const siteConfig = {
   socials: {
     instagram: 'https://www.instagram.com/papi_hair_design/',
     facebook: 'https://www.facebook.com/papihairdesign/',
+    tiktok: 'https://www.tiktok.com/@papi_hair_design',
   },
   links: {
       booking: 'https://services.bookio.com/papi-hair-design/widget?lang=sk',

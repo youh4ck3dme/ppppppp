@@ -112,4 +112,4 @@ The project is organized into a modular and maintainable structure:
 
 ---
 
-This project was developed to demonstrate a modern, AI-enhanced user experience for the service industry.
+This project was developed to demonstrate a modern, AI-enhanced user experience for the service industry.# ppppppp
