@@ -8,12 +8,10 @@ Vymeniť logo na úvodnej a domovskej stránke.
 Sekcia "Kontakt":
 
 Doplniť otváracie hodiny.
-Zobraziť "Zatvorené" červenou farbou, keď je zatvorené.
-Pri sobote doplniť poznámku: "Otvorené len na základe objednávok a po dohode."
-Recenzie:
+
 
 Prepojiť sekciu recenzií s recenziami na Google.
-Instagram Feed:
+
 
 Opraviť orezanie fotiek v sekcii "Sledujte nás na Instagrame".
 Podpora:

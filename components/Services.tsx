@@ -15,7 +15,6 @@ const Services: React.FC = () => {
     const [selectedService, setSelectedService] = useState<ServiceDetail | null>(null);
 
     const servicesToDisplay = activeTab === 'womens' ? womensServices : mensServices;
-    const detailCategories = ['womens_balayage_highlights', 'womens_bleaching_regeneration'];
     
     const handleTabChange = (tabName: 'womens' | 'mens') => {
         setActiveTab(tabName);
@@ -83,20 +82,19 @@ const Services: React.FC = () => {
                                 </h3>
                                 <ul className="space-y-5">
                                     {category.services.map((service) => {
-                                        const hasDetails = detailCategories.includes(category.categoryId) && serviceDetails.some(d => d.id === service.id);
+                                        const hasDetails = serviceDetails.some(d => d.id === service.id);
                                         return (
                                             <li key={service.id} className="flex justify-between items-baseline text-gray-300">
                                                 <div className="flex items-center gap-2">
                                                     <span className="text-base font-medium">{t(`service_${service.id}_name`)}</span>
-                                                    {hasDetails && (
-                                                        <button 
-                                                            onClick={() => handleShowDetails(service.id)} 
-                                                            className="text-gray-500 hover:text-[var(--color-accent)] transition-colors"
-                                                            aria-label={`Viac informácií o ${t(`service_${service.id}_name`)}`}
-                                                        >
-                                                            <Icon id="info" className="w-4 h-4" />
-                                                        </button>
-                                                    )}
+                                                    <button 
+                                                        onClick={() => handleShowDetails(service.id)} 
+                                                        className={`${hasDetails ? 'text-gray-500 hover:text-[var(--color-accent)]' : 'text-gray-800 cursor-not-allowed'} transition-colors`}
+                                                        aria-label={`Viac informácií o ${t(`service_${service.id}_name`)}`}
+                                                        disabled={!hasDetails}
+                                                    >
+                                                        <Icon id="info" className="w-4 h-4" />
+                                                    </button>
                                                 </div>
                                                 <span className="text-lg font-bold text-white">{service.price.toFixed(2)} €</span>
                                             </li>

@@ -71,7 +71,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isMenuOpen, setIsMenuOpen }
     ];
 
     const externalNavLinks = [
-        { href: 'http://www.goldhaircare.sk/affiliate/2208', labelKey: 'navEshop' },
         { href: 'https://services.bookio.com/papi-hair-design/widget/pricing', labelKey: 'navBooking' },
     ];
     

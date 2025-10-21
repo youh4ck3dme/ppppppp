@@ -136,6 +136,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                             <a href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
                                 <Icon id="instagram" className="w-6 h-6" />
                             </a>
+                            <a href={siteConfig.socials.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+                                <Icon id="tiktok" className="w-6 h-6" />
+                            </a>
                         </div>
                     </div>
                  </div>
